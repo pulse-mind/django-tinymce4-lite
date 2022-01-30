@@ -40,7 +40,6 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Framework :: Django',
-        'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.0',
         'Framework :: Django :: 2.1',
         'Framework :: Django :: 2.2',
@@ -51,7 +50,7 @@ setup(
     platforms=['any'],
     url='https://github.com/romanvm/django-tinymce4-lite',
     install_requires=[
-        'Django>=1.11',
+        'Django>=2.0',
         'jsmin',
     ],
     zip_safe=False

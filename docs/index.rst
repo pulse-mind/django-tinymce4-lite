@@ -27,7 +27,7 @@ Compatibility
 -------------
 
 - **Python**: 3.5+
-- **Django**: 1.11+
+- **Django**: 2.0+
 
 .. note:: I try to keep **django-tinymce4-lite** up to date with current Python and Django versions,
   but third-party packages, like filebrowsers, may be incompatible with the latest Python/Django.

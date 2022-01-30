@@ -28,7 +28,7 @@ Compatibility
 -------------
 
 - **Python**: 3.5+
-- **Django**: 1.11+
+- **Django**: 2.0+
 
 Quick Start
 ===========
