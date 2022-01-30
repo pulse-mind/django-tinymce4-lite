@@ -86,7 +86,7 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
         self.browser.get(self.live_server_url + '/admin')
         self.browser.find_element(By.ID,'id_username').send_keys('test')
         self.browser.find_element(By.ID,'id_password').send_keys('test')
-        self.browser.find_element(By.ID,'input[type="submit"]').click()
+        self.browser.find_element(By.CSS_SELECTOR,'input[type="submit"]').click()
         time.sleep(0.2)
         super(RenderTinyMceAdminWidgetTestCase, self).setUp()
 
