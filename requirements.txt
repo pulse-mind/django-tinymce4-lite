@@ -3,5 +3,5 @@ pyenchant
 #django-filebrowser-no-grappelli
 -e git+git://github.com/pulse-mind/django-filebrowser-no-grappelli@django40#egg=django-filebrowser-no-grappelli
 Pillow
-Selenium==3.141.0
+Selenium
 coverage

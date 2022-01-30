@@ -44,6 +44,7 @@ class SeleniumTestCase(StaticLiveServerTestCase):
             options = ChromeOptions()
             options.add_argument('headless')
             options.add_argument('disable-gpu')
+            options.set_capability('w3c', True)
             cls.browser = Chrome(chrome_options=options,
                                  desired_capabilities=capabilities)
         print('Browser engine initialized.')
