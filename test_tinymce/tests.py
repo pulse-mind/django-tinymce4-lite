@@ -94,7 +94,7 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
         self.browser.get(self.live_server_url + '/admin/test_tinymce/testmodel/add/')
         time.sleep(0.2)
         with log_browser_errors(self.browser):
-            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
+            editors = self.browser.find_elements(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 2)
 
     def test_adding_tinymce_widget_in_admin_inline(self):
@@ -102,13 +102,13 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
         time.sleep(0.2)
         with log_browser_errors(self.browser):
             self.browser.find_element(By.CSS_SELECTOR,'div.add-row a').click()
-            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
+            editors = self.browser.find_elements(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 3)
             self.browser.find_element(By.CSS_SELECTOR,'a.inline-deletelink').click()
-            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
+            editors = self.browser.find_elements(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 2)
             self.browser.find_element(By.CSS_SELECTOR,'div.add-row a').click()
-            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
+            editors = self.browser.find_elements(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 3)
 
 
