@@ -85,8 +85,8 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
     def setUp(self):
         User.objects.create_superuser('test', 'test@test.com', 'test')
         self.browser.get(self.live_server_url + '/admin')
-        self.browser.find_element(By.ID,'id_username').send_keys('test')
-        self.browser.find_element(By.ID,'id_password').send_keys('test')
+        self.browser.find_elements(By.ID,'id_username').send_keys('test')
+        self.browser.find_elements(By.ID,'id_password').send_keys('test')
         self.browser.find_element(By.CSS_SELECTOR,'input[type="submit"]').click()
         time.sleep(0.2)
         super(RenderTinyMceAdminWidgetTestCase, self).setUp()
