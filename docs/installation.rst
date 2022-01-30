@@ -30,7 +30,7 @@ Or with old-style regex ``url``:
 
   urlpatterns = [
       ...
-      url(r'^tinymce/', include('tinymce.urls')),
+      re_path(r'^tinymce/', include('tinymce.urls')),
       ...
   ]
 
