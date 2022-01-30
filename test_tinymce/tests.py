@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from unittest import mock
 from selenium.webdriver import Chrome, ChromeOptions, Firefox
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.by import By
 from django.test import TestCase
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
@@ -62,19 +63,19 @@ class RenderTinyMceWidgetTestCase(SeleniumTestCase):
         # Test if TinyMCE 4 widget is actually rendered by JavaScript
         self.browser.get(self.live_server_url + reverse('create'))
         with log_browser_errors(self.browser):
-            self.browser.find_element_by_id('mceu_16')
+            self.browser.find_element(By.ID,'mceu_16')
 
     def test_rendering_in_different_languages(self):
         with self.settings(LANGUAGE_CODE='fr-fr'):
             self.browser.get(self.live_server_url + reverse('create'))
             with log_browser_errors(self.browser):
-                self.browser.find_element_by_id('mceu_16')
+                self.browser.find_element(By.ID,'mceu_16')
                 self.assertTrue('Appuyer sur ALT-F9 pour le menu.' in
                                 self.browser.page_source)
         with self.settings(LANGUAGE_CODE='uk'):
             self.browser.refresh()
             with log_browser_errors(self.browser):
-                self.browser.find_element_by_id('mceu_16')
+                self.browser.find_element(By.ID,'mceu_16')
                 self.assertTrue('Параграф' in
                                 self.browser.page_source)
 
@@ -83,9 +84,9 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
     def setUp(self):
         User.objects.create_superuser('test', 'test@test.com', 'test')
         self.browser.get(self.live_server_url + '/admin')
-        self.browser.find_element_by_id('id_username').send_keys('test')
-        self.browser.find_element_by_id('id_password').send_keys('test')
-        self.browser.find_element_by_css_selector('input[type="submit"]').click()
+        self.browser.find_element(By.ID,'id_username').send_keys('test')
+        self.browser.find_element(By.ID,'id_password').send_keys('test')
+        self.browser.find_element(By.ID,'input[type="submit"]').click()
         time.sleep(0.2)
         super(RenderTinyMceAdminWidgetTestCase, self).setUp()
 
@@ -93,21 +94,21 @@ class RenderTinyMceAdminWidgetTestCase(SeleniumTestCase):
         self.browser.get(self.live_server_url + '/admin/test_tinymce/testmodel/add/')
         time.sleep(0.2)
         with log_browser_errors(self.browser):
-            editors = self.browser.find_elements_by_class_name('mce-tinymce')
+            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 2)
 
     def test_adding_tinymce_widget_in_admin_inline(self):
         self.browser.get(self.live_server_url + '/admin/test_tinymce/testmodel/add/')
         time.sleep(0.2)
         with log_browser_errors(self.browser):
-            self.browser.find_element_by_css_selector('div.add-row a').click()
-            editors = self.browser.find_elements_by_class_name('mce-tinymce')
+            self.browser.find_element(By.CSS_SELECTOR,'div.add-row a').click()
+            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 3)
-            self.browser.find_element_by_css_selector('a.inline-deletelink').click()
-            editors = self.browser.find_elements_by_class_name('mce-tinymce')
+            self.browser.find_element(By.CSS_SELECTOR,'a.inline-deletelink').click()
+            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 2)
-            self.browser.find_element_by_css_selector('div.add-row a').click()
-            editors = self.browser.find_elements_by_class_name('mce-tinymce')
+            self.browser.find_element(By.CSS_SELECTOR,'div.add-row a').click()
+            editors = self.browser.find_element(By.CLASS_NAME,'mce-tinymce')
             self.assertEqual(len(editors), 3)
 
 
