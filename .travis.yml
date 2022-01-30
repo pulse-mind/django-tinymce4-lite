@@ -27,7 +27,7 @@ addons:
     packages:
     - enchant
 before_install:
-  - wget https://chromedriver.storage.googleapis.com/98.0.4758.48/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/97.0.4692.71/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - chmod +x chromedriver
   - export PATH=$TRAVIS_BUILD_DIR:$PATH
