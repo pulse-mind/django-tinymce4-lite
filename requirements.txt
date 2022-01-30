@@ -2,5 +2,5 @@
 pyenchant
 django-filebrowser-no-grappelli
 Pillow
-Selenium
+Selenium==3.141.0
 coverage
